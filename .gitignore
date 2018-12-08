@@ -1,0 +1,5 @@
+# See the name for you IDE
+.idea
+*.sqlite3
+*pyc
+media

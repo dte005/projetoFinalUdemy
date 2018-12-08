@@ -1,0 +1,13 @@
+{% extends 'listar_pessoa.html' %}
+{%block conteudo%}
+  <h2>Cadastro de clientes</h2>
+  <div class="">
+    <form method="POST" enctype="multipart/form-data">
+      {%csrf_token%}
+      {{form.as_p}}
+      <button type="submit">Salvar</button>
+    </form>
+    <a href="/clientes/lista/">Voltar</a>
+  </div>
+
+{%endblock%}
