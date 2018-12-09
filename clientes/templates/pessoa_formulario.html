@@ -1,13 +1,14 @@
 {% extends 'listar_pessoa.html' %}
+{% load bootstrap %}
 {%block conteudo%}
   <h2>Cadastro de clientes</h2>
-  <div class="">
+  <div class="container">
     <form method="POST" enctype="multipart/form-data">
       {%csrf_token%}
-      {{form.as_p}}
-      <button type="submit">Salvar</button>
+      {{form|bootstrap}}
+      <button class="btn btn-primary" type="submit">Salvar</button>
+      <a class="btn btn-info" href="/clientes/lista/">Voltar</a>
     </form>
-    <a href="/clientes/lista/">Voltar</a>
   </div>
 
 {%endblock%}

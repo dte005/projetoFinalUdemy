@@ -1,16 +1,57 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Pagina Home</title>
+    <title>{%block title%}Pagina Home{%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{% static 'offcanvas/offcanvas.css'%}" rel="stylesheet">
+    <link href="{% static 'css/footer.css'%}" rel="stylesheet">
   </head>
   <body>
-    <h1>Seja bem vindo</h1>
-    {% if user.is_authenticated %}
-      <h4>Olá {{user.username}}</h4>
-      <a href="{%  url 'logout'%}">Logout</a>
-    {% else %}
-      <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+    {%block conteudo%}
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Seja bem vindo</h1>
+        {% if user.is_authenticated %}
+          <h4 class="lead">Olá {{user.username}}</h4>
+          <a class="btn btn-primary btn-lg" href="{%  url 'logout'%}">Logout</a>
+        {% else %}
+          <a class="btn btn-primary btn-lg" href="{% url 'login' %}">Login</a>
+        {% endif %}
+
+      </div>
+    </div>
+    {%endblock%}
+    {%block footer%}
+      <footer class="footer">
+        <div class="container">
+          <span class="text-muted">
+            <p>
+              Desenvolvimento do curso Django da Udemy
+            </p>
+            <p>@Sistema de cadastro de clientes</p>
+          </span>
+        </div>
+      </footer>
+    {%endblock%}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
+
+    <script src="{% static 'js/vendor/popper.min.js'%}"></script>
+    <script src="{% static 'js/vendor/holder.min.js'%}"></script>
+    <script src="{% static 'offcanvas/offcanvas.js'%}"></script>
+
+
+    <!--Carregando o jquery primeiro que o bootstrap-->
+     <script src="{% static 'js/jquery-3.3.1.js'%}"></script>
+     <script src="{% static 'js/bootstrap.js'%}"></script>
   </body>
 </html>

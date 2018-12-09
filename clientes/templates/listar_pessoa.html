@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="{% static 'offcanvas/offcanvas.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'css/footer.css'%}" rel="stylesheet">
   </head>
   <body>
 
@@ -48,7 +50,7 @@
             <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
               <strong class="d-block text-gray-dark"><a href="{% url 'detalhar_cliente' pessoa.id %}">{{pessoa.pe_nome}}</a></strong>
-              <a href="{% url 'deletar_cliente' pessoa.id %}">Deletar</a>
+              <a href="{% url 'deletar_cliente' pessoa.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </p>
           </div>
         {%endfor%}
@@ -56,7 +58,18 @@
       {%endblock%}
     </main>
 
-
+    {%block footer%}
+      <footer class="footer">
+        <div class="container">
+          <span class="text-muted">
+            <p>
+              Desenvolvimento do curso Django da Udemy
+            </p>
+            <p>@Sistema de cadastro de clientes</p>
+          </span>
+        </div>
+      </footer>
+    {%endblock%}
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

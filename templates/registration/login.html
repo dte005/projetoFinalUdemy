@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h2>Login</h2>
-    <form method="post">
+{% extends 'home.html'%}
+{% load bootstrap %}
+{%block title%}Login{%endblock%}
+{%block conteudo%}
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="display-4">Login</h2>
+    <form class="form-horizontal" method="post">
+      <div class="form-group">
       {%csrf_token%}
-      {{form.as_p}}
-      <button type="submit">Logar</button>
+      {{form|bootstrap}}
+      </div>
+      <button class="btn btn-primary" type="submit">Logar</button>
     </form>
-  </body>
-</html>
+  </div>
+</div>
+{%endblock%}
